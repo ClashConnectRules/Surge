@@ -1,76 +1,128 @@
 # Surge Configuration
 
-[中文版](./README_zh.md)
+<p align="center">
+  <img src="https://img.shields.io/badge/Surge-5-orange?style=flat-square" alt="Surge">
+  <img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="License">
+</p>
+
+<p align="center">
+  <b>Advanced Surge Proxy Configuration</b><br>
+  <i>智能分流、广告拦截、流媒体解锁</i>
+</p>
+
+<p align="center">
+  <a href="#-basic-settings">Basic</a> •
+  <a href="#-dns-configuration">DNS</a> •
+  <a href="#-proxy-groups">Groups</a> •
+  <a href="#-rule-priority">Rules</a> •
+  <a href="#-installation">Install</a>
+</p>
+
+<p align="center">
+  <b>🌐 Language / 语言切换</b><br>
+  <a href="README_zh.md">🇨🇳 简体中文</a> | <a href="README.md">🇺🇸 English</a>
+</p>
 
 ---
 
-**Advanced Surge proxy configuration with intelligent routing, ad blocking, streaming unlock, and AI service optimization.**
-
----
-
-## Quick Start
-
-```
-Download → Add Proxies → Enable MITM → Enjoy
-```
-
-## Download
+## 📥 Download
 
 | File | Link |
-|:-----|:-----|
+|:----:|:-----|
 | **Surge.conf** | [Download](https://raw.githubusercontent.com/ClashConnectRules/Surge/refs/heads/main/Surge.conf) |
 
 ---
 
-## Features
+## ⚙️ Basic Settings
 
-| Feature | Description |
-|:--------|:-----------|
-| 🧭 **Smart Routing** | Automatic traffic routing based on region and service |
-| 🛡️ **Ad Blocking** | Integrated multi-source ad rules (Skk.moe, blackmatrix7) |
-| 🎬 **Streaming Unlock** | Netflix, Disney+, YouTube, TikTok support |
-| 🤖 **AI Services** | Optimized routing for ChatGPT, Bing AI, Claude |
-| 🔒 **Privacy Protection** | Block tracking and privacy leaks |
-| 🎛️ **Remote Management** | Web Dashboard + external controller |
+| Setting | Value | Description |
+|:-------:|:-----:|:-----------|
+| HTTP Port | `6152` | Wi-Fi sharing port |
+| SOCKS5 Port | `6153` | Wi-Fi sharing port |
+| Controller | `6160` | API control port |
+| Dashboard | `6166` | Web dashboard port |
+| IPv6 | `false` | Disabled by default |
 
 ---
 
-## Policy Groups
+## 🌐 DNS Configuration
 
-### Core Policies
+| Type | Server | Provider |
+|:----:|:------:|:--------:|
+| System | `223.5.5.5`, `223.6.6.6`, `119.29.29.29` | China DNS |
+| DoH | `https://doh.pub/dns-query` | DNSPod |
+| DoH | `https://dns.alidns.com/dns-query` | Alibaba |
+| Hijack | `8.8.8.8:53`, `8.8.4.4:53` | Google DNS |
+
+---
+
+## 🎯 Proxy Groups
+
+### 🚀 Core Groups
 
 | Group | Type | Description |
-|:-------|:------|:-----------|
-| `Mainland` | select | China Direct |
-| `Automatic` | select | Region Auto-Select |
-| `Proxy` | select | Main Proxy Policy |
+|:-----:|:----:|:-----------|
+| `Mainland` | `select` | China Direct |
+| `NoAuto` | `select` | Main entry point |
+| `Automatic` | `select` | Regional selection |
+| `AllServer` | `select` | All subscription nodes |
+| `Proxy` | `select` | Proxy policy |
 
-### Regional Groups
+### 🌍 Regional Groups (Auto URL-Test)
 
-| Group | Type | Test |
-|:-------|:------|:-----|
-| `Hong Kong` 🇭🇰 | url-test | 50ms / 300s |
-| `Taiwan` 🇹🇼 | url-test | 50ms / 300s |
-| `Japan` 🇯🇵 | url-test | 50ms / 300s |
-| `Singapore` 🇸🇬 | url-test | 50ms / 300s |
-| `United States` 🇺🇸 | url-test | 50ms / 300s |
-| `United Kingdom` 🇬🇧 | url-test | 50ms / 300s |
-| `Korea` 🇰🇷 | url-test | 50ms / 300s |
+| Group | Filter | Interval | Tolerance |
+|:-----:|:------:|:--------:|:---------:|
+| `Hong Kong` 🇭🇰 | `港\|🇭🇰\|香港\|HK\|Hong` | 300s | 50ms |
+| `Taiwan` 🇹🇼 | `台\|🇹🇼\|台湾\|TW\|Tai` | 300s | 50ms |
+| `Japan` 🇯🇵 | `日\|🇯🇵\|日本\|JP\|Japan` | 300s | 50ms |
+| `Singapore` 🇸🇬 | `坡\|🇸🇬\|新加坡\|狮城\|SG` | 300s | 50ms |
+| `United States` 🇺🇸 | `美\|🇺🇸\|美国\|US\|States` | 300s | 50ms |
+| `United Kingdom` 🇬🇧 | `🇬🇧\|英国\|英\|UK` | 300s | 50ms |
+| `Korea` 🇰🇷 | `韩\|韩国\|Korea\|KR\|🇰🇷` | 300s | 50ms |
+| `Other` | Exclude above | 300s | 50ms |
 
-### App Services
+### 📦 Service Groups
 
-| Group | Services |
-|:-------|:---------|
-| `Apple` | Apple services |
-| `AI` | ChatGPT, Bing AI, Claude |
-| `Netflix` | Netflix streaming |
-| `Disney+` | Disney+ streaming |
-| `YouTube` | YouTube streaming |
-| `TikTok` | TikTok unlock |
+| Group | Default | Purpose |
+|:-----:|:-------:|:-------|
+| `AI` | Automatic | ChatGPT, Claude, Bing AI |
+| `Apple` | Mainland → HK → US | Apple services |
+| `Microsoft` | Mainland → HK → SG → US | Microsoft services |
+| `OneDrive` | Mainland → HK → SG → US | Cloud storage |
+| `Telegram` | Automatic → SG → US → HK | Messaging |
+| `X` | Automatic → HK → TW → SG → JP → US | Twitter/X |
+| `WeChat` | Mainland → HK → SG → US | WeChat |
+| `Netflix` | HK → TW → SG → JP → US | Netflix streaming |
+| `Disney+` | HK → SG | Disney+ streaming |
+| `YouTube` | Automatic → HK → TW → SG → JP → US | YouTube streaming |
+| `TikTok` | TW → SG → JP → US | TikTok unlock |
+| `Bilibili` | Mainland → HK → TW | Bilibili (HK/TW unlock) |
+| `Speedtest` | Mainland → Auto → AllServer | Speed test |
 
 ---
 
-## Protocols
+## 📋 Rule Priority
+
+```
+ 1. 🔧 Unbreak Rules    Fix broken connections → DIRECT
+ 2. 🚫 Ad Blocking      SKK Ruleset → REJECT
+ 3. 🔒 Privacy          Block trackers
+ 4. 📱 CN Apps          WeChat, NetEase, Bilibili, Weibo
+ 5. 🍎 Apple Services   App Store, Apple News, Apple TV
+ 6. 🤖 AI Services      OpenAI, Claude, Gemini, Bing
+ 7. 🎬 Streaming        Disney+, Netflix, TikTok, YouTube
+ 8. 🌏 Regional Unlock  US, EU, JP, KR, HK, TW streams
+ 9. 💬 Social Media     Twitter, Telegram, Facebook, Instagram
+10. 🔧 Other Global     OneDrive, Microsoft, GitHub, Speedtest
+11. 🇨🇳 CN Rules        SKK + ChinaMax ruleset
+12. 🌐 Global Rules     CDN, Global ruleset
+13. 🏠 LAN              Local network → DIRECT
+14. 🎯 Final Rule       FINAL → NoAuto
+```
+
+---
+
+## 🔌 Supported Protocols
 
 | Standard | Community |
 |:---------|:----------|
@@ -84,9 +136,33 @@ Download → Add Proxies → Enable MITM → Enjoy
 
 ---
 
-## Installation
+## ✨ Special Features
 
-### Manual Import
+### 🔄 URL Rewrite
+
+| Original | Target | Type |
+|:--------:|:------:|:----:|
+| `google.cn` | `google.com` | 302 |
+| `maps.google.cn` | `maps.google.com` | 302 |
+| `taobao.com` | HTTPS | 302 |
+| `jd.com` | HTTPS | 302 |
+| `mi.com` | HTTPS | 302 |
+
+### 🏠 Host Mapping
+
+| Service | DNS Server | Description |
+|:-------:|:----------:|:-----------|
+| Taobao/Tmall/Alipay | `223.5.5.5` | Alibaba services |
+| JD/QQ/WeChat | `119.28.28.28` | Tencent services |
+| Bilibili/NetEase | `119.29.29.29` | Entertainment |
+| Xiaomi | `119.29.29.29` | Xiaomi services |
+| Router Admin | System DNS | Local devices |
+
+---
+
+## 🚀 Installation
+
+### Method 1: Manual Import
 
 ```
 1. Download Surge.conf
@@ -95,7 +171,7 @@ Download → Add Proxies → Enable MITM → Enjoy
 4. Paste URL → Confirm
 ```
 
-### Replace File
+### Method 2: Replace File
 
 ```
 1. Download Surge.conf
@@ -103,11 +179,19 @@ Download → Add Proxies → Enable MITM → Enjoy
 3. Restart Surge
 ```
 
+### Configure Subscription
+
+```
+AllServer = select, ..., policy-path=https://your-subscription-url
+```
+
 ---
 
-## Configuration
+## ⚙️ Configuration
 
-### Add Proxy
+### Add Proxy Servers
+
+Edit `[Proxy]` section:
 
 ```ini
 # Shadowsocks
@@ -130,27 +214,41 @@ MyTrojan = trojan, example.com, 443, password=xxx
 
 ---
 
-## DNS
+## 📚 Rule Sources
 
-| Type | Server |
-|:-----|:-------|
-| Primary | 223.5.5.5, 223.6.6.6 |
-| Secondary | 119.29.29.29 |
-| DoH | doh.pub, dns.alidns.com |
-
----
-
-## Rule Sources
-
-- **blackmatrix7** - App routing rules
-- **Skk.moe** - General routing and ad blocking
-- **Semporia** - TikTok unlock
-- **VirgilClyne** - ASN rules
-- **zxfccmm4** - Unbreak rules
+| Source | Description |
+|:------:|:-----------|
+| [blackmatrix7](https://github.com/blackmatrix7/ios_rule_script) | Cross-platform rules |
+| [Skk.moe](https://ruleset.skk.moe) | SKK ruleset |
+| [VirgilClyne](https://github.com/VirgilClyne/GetSomeFries) | ASN rules |
+| [Semporia](https://github.com/Semporia/TikTok-Unlock) | TikTok unlock |
+| [zxfccmm4](https://github.com/zxfccmm4) | Unbreak rules |
 
 ---
 
-## Troubleshooting
+## ⚠️ Notes
+
+| Item | Description |
+|:----:|:-----------|
+| 🔗 Subscription | Replace with your own subscription URL |
+| 🔄 Rule Update | Rules auto-update from online sources |
+| ⏱️ Speed Test | 300s interval, 3s timeout, 50ms tolerance |
+| 🔐 MITM Cert | Required for URL rewrite |
+| 🔍 Node Filter | Auto-filter nodes with "traffic/reset/expire" keywords |
+
+---
+
+## 🎛️ Remote Control
+
+| Service | Address |
+|:--------|:--------|
+| External Controller | `surge@0.0.0.0:6160` |
+| HTTP API | `clashconnectrules@0.0.0.0:6166` |
+| Web Dashboard | Enabled |
+
+---
+
+## 🔧 Troubleshooting
 
 | Issue | Solution |
 |:-------|:---------|
@@ -161,17 +259,7 @@ MyTrojan = trojan, example.com, 443, password=xxx
 
 ---
 
-## Remote Control
-
-| Service | Address |
-|:--------|:--------|
-| External Controller | `surge@0.0.0.0:6160` |
-| HTTP API | `clashconnectrules@0.0.0.0:6166` |
-| Web Dashboard | Enabled |
-
----
-
-## Credits
+## 📄 Credits
 
 - [Surge](https://nssurge.com)
 - [blackmatrix7](https://github.com/blackmatrix7)
@@ -180,4 +268,12 @@ MyTrojan = trojan, example.com, 443, password=xxx
 
 ---
 
-**MIT License**
+## 📄 License
+
+**MIT**
+
+---
+
+<p align="center">
+  <sub>Made with ❤️ for better internet experience</sub>
+</p>
