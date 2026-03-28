@@ -25,6 +25,18 @@
 
 ---
 
+## 💎 推荐机场
+
+<p align="center">
+
+| | 服务商 | 说明 | 注册 |
+|:-:|:------:|:----:|:----:|
+| 🌐 | **ZRJ** | 优质线路 · 极速体验 | [立即注册](https://www.hizrj.xyz/#/register?code=l9CHL5er) |
+
+</p>
+
+---
+
 ## 📥 下载
 
 | 文件 | 链接 |
@@ -256,6 +268,102 @@ MyTrojan = trojan, example.com, 443, password=xxx
 | 流媒体被阻断 | 使用支持流媒体的节点 |
 | MITM 失效 | 安装/信任 CA 证书 |
 | 规则不生效 | 检查规则顺序，查看日志 |
+
+---
+
+---
+
+## 🎨 自定义图标
+
+Surge 策略组支持通过 `icon-url` 参数设置自定义图标。以下教程帮助你添加喜欢的图标。
+
+### 图标格式
+
+在 `[Proxy Group]` 中，每个策略组都可以指定 `icon-url`：
+
+```ini
+Telegram = select, Automatic, Singapore, "United States", icon-url=https://example.com/icon.png
+```
+
+图标应为 **PNG 格式**，推荐尺寸 **120×120 px**。
+
+### 图标包推荐
+
+以下图标包来自社区，覆盖常用 App、流媒体、国旗等分类：
+
+**Qure 图标库**
+
+| 图标包 | 链接 |
+|:------:|:-----|
+| Qure（彩色·全部） | [QureColor-All.json](https://raw.githubusercontent.com/Koolson/Qure/master/Other/QureColor-All.json) |
+| Qure（浅色·全部） | [QureLight-All.json](https://raw.githubusercontent.com/Koolson/Qure/master/Other/QureLight-All.json) |
+| Qure（透明·全部） | [Quremini.json](https://raw.githubusercontent.com/Koolson/Qure/master/Other/Quremini.json) |
+
+**Orz-3 图标库**
+
+| 图标包 | 链接 |
+|:------:|:-----|
+| Orz-3（彩色 A） | [miniColor.json](https://raw.githubusercontent.com/Orz-3/mini/master/miniColor.json) |
+| Orz-3（彩色 B） | [mini+.json](https://raw.githubusercontent.com/Orz-3/mini/master/mini+.json) |
+| Orz-3（彩色 C） | [mini.json](https://raw.githubusercontent.com/Orz-3/mini/master/mini.json) |
+| Orz-3（彩色 D） | [face.json](https://raw.githubusercontent.com/Orz-3/face/master/face.json) |
+
+**其他图标包**
+
+| 图标包 | 链接 |
+|:------:|:-----|
+| tugepaopao（彩色） | [Cute.json](https://raw.githubusercontent.com/tugepaopao/Image-Storage/master/other/Cute.json) |
+| shindgewongxj（彩色） | [iconset.json](https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/iconset.json) |
+| Semporia（彩色手绘） | [Semporia.json](https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Semporia.json) |
+| 彩色静态旗帜 | [ColorfulStaticFlag.json](https://gitlab.com/lodepuly/iconlibrary/-/raw/main/Flag_icon/ColorfulStaticFlag.json) |
+| TheMagic 图标 | [TheRaw.json](https://raw.githubusercontent.com/Twoandz9/TheMagic-Icons/main/TheRaw.json) |
+
+**ginibond 图标系列**
+
+| 图标包 | 链接 |
+|:------:|:-----|
+| 机场图标 | [airport](https://raw.githubusercontent.com/ginibond/ginibond/main/Icons/airport/tubiao.json) |
+| QQ 经典 | [QQ_Classic](https://raw.githubusercontent.com/ginibond/ginibond/main/Icons/QQ_Classic/tubiao.json) |
+| 可爱卡通 | [Cute_Cartoon](https://raw.githubusercontent.com/ginibond/ginibond/main/Icons/Cute_Cartoon/tubiao.json) |
+| 联系人 | [contact](https://raw.githubusercontent.com/ginibond/ginibond/main/Icons/contact/tubiao.json) |
+| 角色 | [character](https://raw.githubusercontent.com/ginibond/ginibond/main/Icons/character/tubiao.json) |
+| 暴怒表情 | [RageBaby](https://raw.githubusercontent.com/ginibond/ginibond/main/Icons/RageBaby/tubiao.json) |
+
+### 如何添加图标
+
+**步骤一：找到图标包**
+
+浏览图标包的 GitHub 仓库，找到你想要的图标 PNG 文件。
+
+**步骤二：获取图标直链**
+
+图标的直链格式为：
+
+```
+https://raw.githubusercontent.com/<用户名>/<仓库名>/<分支>/<路径>/<图标名>.png
+```
+
+> **提示：** 如果你从 Loon 图标导入链接获取，链接格式通常为：
+> ```
+> https://www.nsloon.com/openloon/import?iconset=https://raw.githubusercontent.com/...
+> ```
+> 请去除 `https://www.nsloon.com/openloon/import?iconset=` 前缀，只保留 `https://raw.githubusercontent.com/...` 部分。
+
+**步骤三：修改配置文件**
+
+打开 `Surge.conf`，找到对应策略组，替换或添加 `icon-url` 参数：
+
+```ini
+# 修改前
+YouTube = select, Automatic, ..., icon-url=https://old-icon.png
+
+# 修改后
+YouTube = select, Automatic, ..., icon-url=https://raw.githubusercontent.com/xxx/YouTube.png
+```
+
+**步骤四：重新加载配置**
+
+在 Surge 中重新加载配置文件，新图标即可生效。
 
 ---
 

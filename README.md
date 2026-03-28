@@ -25,6 +25,18 @@
 
 ---
 
+## 💎 Recommended Providers
+
+<p align="center">
+
+| | Provider | Features | Sign Up |
+|:-:|:--------:|:--------:|:-------:|
+| 🌐 | **ZRJ** | Premium Routes · Fast Experience | [Register Now](https://www.hizrj.xyz/#/register?code=l9CHL5er) |
+
+</p>
+
+---
+
 ## 📥 Download
 
 | File | Link |
@@ -256,6 +268,102 @@ MyTrojan = trojan, example.com, 443, password=xxx
 | Streaming blocked | Use streaming-capable nodes |
 | MITM fails | Install/trust CA certificate |
 | Rules not working | Check rule order, view logs |
+
+---
+
+---
+
+## 🎨 Custom Icons
+
+Surge proxy groups support custom icons via the `icon-url` parameter. Follow this guide to personalize your icons.
+
+### Icon Format
+
+In the `[Proxy Group]` section, each group can specify an `icon-url`:
+
+```ini
+Telegram = select, Automatic, Singapore, "United States", icon-url=https://example.com/icon.png
+```
+
+Icons should be **PNG format**, recommended size **120×120 px**.
+
+### Recommended Icon Packs
+
+These community icon packs cover popular apps, streaming services, flags, and more:
+
+**Qure Icon Pack**
+
+| Icon Pack | Link |
+|:---------:|:-----|
+| Qure (Color·All) | [QureColor-All.json](https://raw.githubusercontent.com/Koolson/Qure/master/Other/QureColor-All.json) |
+| Qure (Light·All) | [QureLight-All.json](https://raw.githubusercontent.com/Koolson/Qure/master/Other/QureLight-All.json) |
+| Qure (Mini·All) | [Quremini.json](https://raw.githubusercontent.com/Koolson/Qure/master/Other/Quremini.json) |
+
+**Orz-3 Icon Pack**
+
+| Icon Pack | Link |
+|:---------:|:-----|
+| Orz-3 (Color A) | [miniColor.json](https://raw.githubusercontent.com/Orz-3/mini/master/miniColor.json) |
+| Orz-3 (Color B) | [mini+.json](https://raw.githubusercontent.com/Orz-3/mini/master/mini+.json) |
+| Orz-3 (Color C) | [mini.json](https://raw.githubusercontent.com/Orz-3/mini/master/mini.json) |
+| Orz-3 (Color D) | [face.json](https://raw.githubusercontent.com/Orz-3/face/master/face.json) |
+
+**Other Icon Packs**
+
+| Icon Pack | Link |
+|:---------:|:-----|
+| tugepaopao (Color) | [Cute.json](https://raw.githubusercontent.com/tugepaopao/Image-Storage/master/other/Cute.json) |
+| shindgewongxj (Color) | [iconset.json](https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/iconset.json) |
+| Semporia (Color Hand-drawn) | [Semporia.json](https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Semporia.json) |
+| Colorful Static Flags | [ColorfulStaticFlag.json](https://gitlab.com/lodepuly/iconlibrary/-/raw/main/Flag_icon/ColorfulStaticFlag.json) |
+| TheMagic Icons | [TheRaw.json](https://raw.githubusercontent.com/Twoandz9/TheMagic-Icons/main/TheRaw.json) |
+
+**ginibond Icon Series**
+
+| Icon Pack | Link |
+|:---------:|:-----|
+| Airport Icons | [airport](https://raw.githubusercontent.com/ginibond/ginibond/main/Icons/airport/tubiao.json) |
+| QQ Classic | [QQ_Classic](https://raw.githubusercontent.com/ginibond/ginibond/main/Icons/QQ_Classic/tubiao.json) |
+| Cute Cartoon | [Cute_Cartoon](https://raw.githubusercontent.com/ginibond/ginibond/main/Icons/Cute_Cartoon/tubiao.json) |
+| Contact | [contact](https://raw.githubusercontent.com/ginibond/ginibond/main/Icons/contact/tubiao.json) |
+| Character | [character](https://raw.githubusercontent.com/ginibond/ginibond/main/Icons/character/tubiao.json) |
+| RageBaby | [RageBaby](https://raw.githubusercontent.com/ginibond/ginibond/main/Icons/RageBaby/tubiao.json) |
+
+### How to Add Icons
+
+**Step 1: Find an icon pack**
+
+Browse the icon pack's GitHub repository to find the PNG file you want.
+
+**Step 2: Get the icon direct link**
+
+The direct link format is:
+
+```
+https://raw.githubusercontent.com/<username>/<repo>/<branch>/<path>/<icon-name>.png
+```
+
+> **Tip:** If you get links from Loon icon import URLs, the format is:
+> ```
+> https://www.nsloon.com/openloon/import?iconset=https://raw.githubusercontent.com/...
+> ```
+> Remove the `https://www.nsloon.com/openloon/import?iconset=` prefix and keep only the `https://raw.githubusercontent.com/...` part.
+
+**Step 3: Edit the config**
+
+Open `Surge.conf`, find the target proxy group, and replace or add the `icon-url` parameter:
+
+```ini
+# Before
+YouTube = select, Automatic, ..., icon-url=https://old-icon.png
+
+# After
+YouTube = select, Automatic, ..., icon-url=https://raw.githubusercontent.com/xxx/YouTube.png
+```
+
+**Step 4: Reload config**
+
+Reload the configuration file in Surge for the new icons to take effect.
 
 ---
 
