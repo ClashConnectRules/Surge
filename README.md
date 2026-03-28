@@ -25,18 +25,6 @@
 
 ---
 
-## 💎 Recommended Providers
-
-<p align="center">
-
-| | Provider | Features | Sign Up |
-|:-:|:--------:|:--------:|:-------:|
-| 🌐 | **ZRJ** | Premium Routes · Fast Experience | [Register Now](https://www.hizrj.xyz/#/register?code=l9CHL5er) |
-
-</p>
-
----
-
 ## 📥 Download
 
 | File | Link |
