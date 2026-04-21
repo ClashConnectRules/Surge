@@ -18,19 +18,6 @@
   <a href="#-安装">安装</a>
 </p>
 
-<p align="center">
-  <a href="https://hizrj.xyz/#/register?code=BwiZnFLE">
-    <img src="https://img.shields.io/badge/推荐机场-ZRJ-f97316?style=flat-square" alt="推荐机场">
-  </a>
-  <a href="https://hizrj.xyz/#/register?code=BwiZnFLE">
-    <img src="https://img.shields.io/badge/立即注册-Open_Link-0f766e?style=flat-square" alt="立即注册">
-  </a>
-</p>
-
-<p align="center">
-  <b>优质机场推荐：</b>
-  <a href="https://hizrj.xyz/#/register?code=BwiZnFLE">ZRJ</a>
-</p>
 
 <p align="center">
   <b>🌐 Language / 语言切换</b><br>
