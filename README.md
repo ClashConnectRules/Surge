@@ -26,6 +26,8 @@
 
 ---
 
+> **Subscription**: [Register here](https://hizrj.xyz/#/register?code=BwiZnFLE) to get your subscription URL for proxy nodes.
+
 ## 📥 Download
 
 | File | Link |
