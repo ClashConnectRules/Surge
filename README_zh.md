@@ -26,7 +26,7 @@
 
 ---
 
-> **订阅推荐**：[点击注册](https://hizrj.xyz/#/register?code=BwiZnFLE) 获取订阅链接。
+> **订阅推荐**：[点击注册](https://hizrj.xyz/#/register?code=qpdHySHz) 获取订阅链接。
 
 ## 📥 下载
 
